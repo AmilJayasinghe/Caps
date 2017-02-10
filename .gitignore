@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Irish Caps - Customer Order Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Google Font -->
+	<link href="//fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" />
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<link rel="stylesheet" href="assets/css/style.css" media="screen" type="text/css" />
+	<!-- jQuery -->
+	<script src="assets/js/jquery.min.js"></script>
+	<!-- jQuery Form Validator Plugin -->
+	<script src="assets/js/jquery.form-validator.min.js"></script> 
+	<script src="assets/js/calculate.js"></script>
+</head>
+
+<body>
+	<!-- header -->
+	<header id="header">
+		<h1><span>IC</span> Irish Caps - Customer Order Form</h1>
+	</header><!-- #header -->
+	
+	<!-- container -->
+	<div id="container">
+		<div class="col-sm-8 cap-bg">
+			<div class="cap-badge"></div>
+			<div class="ic-brand">IC</div>
+		</div>
+		
+		<div class="col-sm-4 col-md-offset-1">
+			<form method="post" action="http://atlantis.cit.ie/displayvalues.php" name="order_form" id="order_form">
+				<h2>Customise Your Cap</h2>
+				<div class="form-group">
+					<label for="cap_colour">Select Colour:</label>
+					<select name="cap_colour" id="cap_colour" class="form-control">
+						<option value="white" data-colour="15.00">White - &euro;15</option>
+						<option value="black" data-colour="15.00">Black - &euro;15</option>
+						<option value="gray" data-colour="12.00">Gray - &euro;12</option>
+						<option value="red" data-colour="10.00">Red - &euro;10</option>
+						<option value="pink" data-colour="15.00">Pink - &euro;15</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="cap_badge">Select Badge:</label>
+					<select name="cap_badge" id="cap_badge" class="form-control">
+						<option value="none" data-badge="0.00">None / Plain</option>
+						<option value="harp" data-badge="4.00">Harp - &euro;4</option>
+						<option value="man" data-badge="4.50">Man - &euro;4.50</option>
+						<option value="rugby" data-badge="3.00">Rugby - &euro;3</option>
+						<option value="shamrock" data-badge="5.00">Shamrock - &euro;5</option>
+						<option value="soccer" data-badge="5.00">Soccer - &euro;5</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="cap_size">Select Size:</label>
+					<select name="cap_size" id="cap_size"  class="form-control">
+						<option value="small" data-size="0.00">Small (S)</option>
+						<option value="medium" data-size="1.00">Medium (M) - &euro;1</option>
+						<option value="large" data-size="1.50">Large (L) - &euro;1.50</option>
+						<option value="xlarge" data-size="2.00">Extra Large (XL) - &euro;2</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="cap_material">Select Material:</label>
+					<select name="cap_material" id="cap_material" class="form-control">
+						<option value="cotton" data-material="0.00">Cotton</option>
+						<option value="faux" data-material="5.00">Faux Leather - &euro;5</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="cap_features">Select Features:</label>
+					<input type="checkbox" name="features" value="adjustable" id="adjustable" data-adjustable="3.00" class="form-check-input" /> Adjustable strap - &euro;3<br />
+					<input type="checkbox" name="features" value="backbadge" id="backbadge" data-backbadge="5.00" class="form-check-input" /> Badge in the back - &euro;5<br />
+					<input type="checkbox" name="features" value="ic_branding" id="ic_branding" class="form-check-input" /> Irish Caps branding (-10%)
+				</div>
+				<div class="form-group">
+					<label for="cap_qty">Select Quantity:</label>
+					<select name="cap_qty" id="cap_qty" class="form-control">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="name">Total (&euro;):</label>
+					<input type="text" name="total" id="total" value="15" class="form-control" />
+				</div>
+				
+				<h2>Enter Your Details</h2>
+				<em>All fields are required</em>
+				<div class="form-group gap-top">
+					<label for="name">Your Name:</label>
+					<input id="name" type="text" name="name" class="form-control" data-validation="custom" data-validation-regexp="^([a-zA-Z' -]+)$" required />
+				</div>
+				<div class="form-group">
+					<label for="email">Your Email:</label>
+					<input type="email" name="email" class="form-control" data-validation="email" required />
+				</div>
+				<div class="form-group">
+					<label for="tel">Your Telephone:</label>
+					<input type="tel" name="tel" class="form-control" data-validation="number" required />
+				</div>
+				<div class="form-group">
+					<label for="address">Your Shipping Address:</label>
+					<textarea name="address" class="form-control" required></textarea>
+				</div>
+				
+				<div class="form-group"><input type="submit" name="submit" value="submit" class="btn btn-primary" /></div>
+			</form>
+		</div><!-- .col-sm-4 -->
+		<div class="clearfix"></div>
+	</div><!-- #container -->
+	
+	<!-- footer -->
+	<footer id="footer">
+		Designed &amp; Developed By Amil Jayasinghe
+	</footer><!-- #footer -->
+</body>
+</html>
